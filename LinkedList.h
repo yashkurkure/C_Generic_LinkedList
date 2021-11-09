@@ -32,3 +32,8 @@ Node* addDataToLinkedList(LinkedList* _linkedlist, void *data, size_t size);
 //Function frees the memeory of the linked list that was allocated on the heap.
 //frees the nodes and the data.
 void freeLinkedList(LinkedList* _linkedlist);
+
+//Function that deletes and frees a node at index.
+//returns 0 on success
+//returns -1 on error
+int deleteNodeAt(LinkedList* _linkedlist, int index);

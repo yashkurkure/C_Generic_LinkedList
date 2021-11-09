@@ -92,6 +92,49 @@ void freeLinkedList(LinkedList* _linkedlist)
     free(head);
     head = temp;
   }
+  free(_linkedlist);
+
+}
+
+int deleteNodeAt(LinkedList* _linkedlist, int index)
+{
+  //LinkedList is empty, or something is wring is with the linked list
+  if(_linkedlist->head == NULL || _linkedlist->tail == NULL)
+    return -1;
+
+  //Provided index is out of bound
+  if(index < 0 || index >= _linkedlist->length)
+    return -1;
+
+  //Iterate over the linked list
+  Node* curr;
+  Node* prev = NULL;
+  int indexCounter = 0;
+  for(curr = _linkedlist->head; curr != NULL; curr = curr->next)
+  {
+    if(indexCounter == index)
+    {
+      break;
+    }
+    prev = curr;
+    indexCounter++;
+  }
+
+  //delete the node at curr and reconnect the connections
+  
+  //index == 0, i.e, we are deleting the head
+  if(prev == NULL)
+  {
+    _linkedlist->head = curr->next;
+    free(curr->data);
+    free(curr);
+    return 0;
+  }
+  
+  prev->next = curr->next;
+  free(curr->data);
+  free(curr);
+  return 0;
 
 }
 

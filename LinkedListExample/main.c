@@ -31,6 +31,27 @@ void main()
     indexCount++;
   }
 
+  printf("Enter a index to delete:\n");
+  int del_index;
+  scanf("%d", &del_index);
+  
+  if(deleteNodeAt(l, del_index) == 0)
+  {
+    Node* j = l->head;
+    int indexCount = 0;
+    printf("Printing the Linked List after deleting index %d:\n", del_index);
+    while(j != NULL)
+    {
+      printf("at index %d\t%d\n", indexCount , *((int*)(j->data)));
+      j = j->next;
+      indexCount++;
+    }
+  }
+  else
+  {
+    printf("delete at index %d failed.\n", del_index);
+  }
+
   printf("Freeing the Linked List from memory...\n");
   freeLinkedList(l);
   printf("Linked List memory freed\n");
