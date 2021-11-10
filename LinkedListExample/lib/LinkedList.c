@@ -138,6 +138,32 @@ int deleteNodeAt(LinkedList* _linkedlist, int index)
 
 }
 
+LinkedList*  appendLinkedList(LinkedList* _linkedlist1, LinkedList* _linkedlist2)
+{
+  if(_linkedlist1 == NULL) return NULL;
+  if(_linkedlist2 == NULL) return NULL;
+  if(_linkedlist1->head == NULL)
+  {
+    if(_linkedlist1->tail == NULL)
+    {
+      return _linkedlist2;
+    }
+    else return NULL;
+  }
+  if(_linkedlist2->head == NULL)
+  {
+    if(_linkedlist2->tail == NULL)
+    {
+      return _linkedlist1;
+    }
+    else return NULL;
+  }
+
+  _linkedlist1->tail->next = _linkedlist2->head;
+  _linkedlist1->tail = _linkedlist2->tail;
+  return _linkedlist1;
+}
+
 /*
 void main()
 {

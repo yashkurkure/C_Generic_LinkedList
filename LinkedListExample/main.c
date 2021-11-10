@@ -55,4 +55,33 @@ void main()
   printf("Freeing the Linked List from memory...\n");
   freeLinkedList(l);
   printf("Linked List memory freed\n");
+
+  LinkedList* l1 = newLinkedList();
+  LinkedList* l2 = newLinkedList();
+
+  int m;
+  int k = 2;
+  for(m = 1; m < 10 ; m = m + 2)
+  {
+    addDataToLinkedList(l1, &m, sizeof(int));
+    addDataToLinkedList(l2, &k, sizeof(int));
+    k = k+2;
+  }
+
+  LinkedList* l3 = appendLinkedList(l1,l2);
+  
+  j = l3->head;
+  indexCount = 0;
+  printf("Printing the Appended Linked List:\n");
+  while(j != NULL)
+  {
+    printf("at index %d\t%d\n", indexCount , *((int*)(j->data)));
+    j = j->next;
+    indexCount++;
+  }
+
+
+
+
+
 }

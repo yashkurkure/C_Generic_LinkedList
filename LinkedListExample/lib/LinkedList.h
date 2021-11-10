@@ -37,3 +37,10 @@ void freeLinkedList(LinkedList* _linkedlist);
 //returns 0 on success
 //returns -1 on error
 int deleteNodeAt(LinkedList* _linkedlist, int index);
+
+//Function that appends _linkedlist2 to _linkedlist1 and returns an pointer to the 
+// _linkedlist1 after append
+LinkedList* appendLinkedList(LinkedList* _linkedlist1, LinkedList* _linkedlist2);
+
+
+
